@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const $input = document.querySelector('#datetime-picker');
 const $days = document.querySelector('span[data-days]');
@@ -18,7 +19,7 @@ const options = {
     const selectedDateInMs = selectedDate.getTime();
     const today = new Date();
     if (selectedDate < today) {
-      window.alert('Please choose a date in the future');
+      Notify.warning('Please choose a date in the future');
     }
     localStorage.setItem('selectedDayByUser', selectedDateInMs);
   },

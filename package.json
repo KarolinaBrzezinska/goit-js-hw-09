@@ -27,6 +27,7 @@
   "dependencies": {
     "@vimeo/player": "^2.16.4",
     "flatpickr": "^4.6.11",
+    "notiflix": "^3.2.5",
     "simplelightbox": "^2.10.3"
   }
 }

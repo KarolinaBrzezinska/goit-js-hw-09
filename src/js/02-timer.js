@@ -54,7 +54,6 @@ const convertUserMsToObject = () => {
 };
 
 const addDateToHtml = () => {
-  console.log('cześć');
   const startCountingDate = convertUserMsToObject();
 
   $days.innerHTML = addLeadingZero(startCountingDate.days);

@@ -12,19 +12,19 @@ const $divTimer = document.querySelector('div.timer');
 const $classField = document.querySelectorAll('.field');
 const $classValue = document.querySelectorAll('.value');
 
-$divTimer.style.display = "flex";
-$divTimer.style.margin = "30px";
+$divTimer.style.display = 'flex';
+$divTimer.style.margin = '30px';
 
 $classField.forEach(el => {
   el.style.display = 'flex';
   el.style.flexDirection = 'column';
   el.style.alignItems = 'center';
   el.style.paddingRight = '15px';
-})
+});
 
 $classValue.forEach(el => {
-  el.style.fontSize = "45px";
-})
+  el.style.fontSize = '45px';
+});
 
 $startButton.disabled = true;
 
@@ -41,8 +41,8 @@ const options = {
       $startButton.disabled = true;
       Notify.warning('Please choose a date in the future');
     } else {
-    $startButton.disabled = false;
-    localStorage.setItem('selectedDayByUser', selectedDateInMs);
+      $startButton.disabled = false;
+      localStorage.setItem('selectedDayByUser', selectedDateInMs);
     }
   },
 };

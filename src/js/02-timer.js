@@ -63,8 +63,6 @@ const addDateToHtml = () => {
 };
 
 const countingDown = () => {
-
-
   setInterval(() => {
     addDateToHtml();
   }, 1000);

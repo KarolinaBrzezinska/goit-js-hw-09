@@ -8,6 +8,25 @@ const $hours = document.querySelector('span[data-hours]');
 const $minutes = document.querySelector('span[data-minutes]');
 const $seconds = document.querySelector('span[data-seconds]');
 const $startButton = document.querySelector('button[data-start]');
+const $divTimer = document.querySelector('div.timer');
+const $classField = document.querySelectorAll('.field');
+const $classValue = document.querySelectorAll('.value');
+
+$divTimer.style.display = "flex";
+$divTimer.style.margin = "30px";
+
+$classField.forEach(el => {
+  el.style.display = 'flex';
+  el.style.flexDirection = 'column';
+  el.style.alignItems = 'center';
+  el.style.paddingRight = '15px';
+})
+
+$classValue.forEach(el => {
+  el.style.fontSize = "45px";
+})
+
+$startButton.disabled = true;
 
 const options = {
   enableTime: true,
@@ -18,10 +37,13 @@ const options = {
     const selectedDate = selectedDates[0];
     const selectedDateInMs = selectedDate.getTime();
     const today = new Date();
-    if (selectedDate < today) {
+    if (selectedDate <= today) {
+      $startButton.disabled = true;
       Notify.warning('Please choose a date in the future');
-    }
+    } else {
+    $startButton.disabled = false;
     localStorage.setItem('selectedDayByUser', selectedDateInMs);
+    }
   },
 };
 

@@ -74,26 +74,25 @@ const convertUserMsToObject = () => {
   const selectedDateFromLocaleStorage = localStorage.getItem('selectedDayByUser');
   const timeToSelectedDate = selectedDateFromLocaleStorage - today;
   if (timeToSelectedDate < 0) {
-    return clearInterval(timerID)
-  };
+    return clearInterval(timerID);
+  }
+
   const objectToReturn = convertMs(timeToSelectedDate);
   return objectToReturn;
 };
 
 const addDateToHtml = () => {
   const startCountingDate = convertUserMsToObject();
-  console.log("hello");
-
+  if ( startCountingDate !== undefined){
   $days.innerHTML = addLeadingZero(startCountingDate.days);
   $hours.innerHTML = addLeadingZero(startCountingDate.hours);
   $minutes.innerHTML = addLeadingZero(startCountingDate.minutes);
   $seconds.innerHTML = addLeadingZero(startCountingDate.seconds);
+  }
+  console.log("hello");
 };
 
-
-
 const countingDown = () => {
-  console.log("hello");
   timerID = setInterval(() => {
     addDateToHtml();
   }, 1000);

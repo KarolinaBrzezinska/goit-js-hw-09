@@ -83,13 +83,13 @@ const convertUserMsToObject = () => {
 
 const addDateToHtml = () => {
   const startCountingDate = convertUserMsToObject();
-  if ( startCountingDate !== undefined){
-  $days.innerHTML = addLeadingZero(startCountingDate.days);
-  $hours.innerHTML = addLeadingZero(startCountingDate.hours);
-  $minutes.innerHTML = addLeadingZero(startCountingDate.minutes);
-  $seconds.innerHTML = addLeadingZero(startCountingDate.seconds);
+  if (startCountingDate !== undefined) {
+    $days.innerHTML = addLeadingZero(startCountingDate.days);
+    $hours.innerHTML = addLeadingZero(startCountingDate.hours);
+    $minutes.innerHTML = addLeadingZero(startCountingDate.minutes);
+    $seconds.innerHTML = addLeadingZero(startCountingDate.seconds);
   }
-  console.log("hello");
+  console.log('hello');
 };
 
 const countingDown = () => {

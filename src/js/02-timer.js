@@ -11,6 +11,7 @@ const $startButton = document.querySelector('button[data-start]');
 const $divTimer = document.querySelector('div.timer');
 const $classField = document.querySelectorAll('.field');
 const $classValue = document.querySelectorAll('.value');
+let timerID = null;
 
 $divTimer.style.display = 'flex';
 $divTimer.style.margin = '30px';
@@ -72,12 +73,16 @@ const convertUserMsToObject = () => {
   const today = new Date();
   const selectedDateFromLocaleStorage = localStorage.getItem('selectedDayByUser');
   const timeToSelectedDate = selectedDateFromLocaleStorage - today;
+  if (timeToSelectedDate < 0) {
+    return clearInterval(timerID)
+  };
   const objectToReturn = convertMs(timeToSelectedDate);
   return objectToReturn;
 };
 
 const addDateToHtml = () => {
   const startCountingDate = convertUserMsToObject();
+  console.log("hello");
 
   $days.innerHTML = addLeadingZero(startCountingDate.days);
   $hours.innerHTML = addLeadingZero(startCountingDate.hours);
@@ -85,10 +90,10 @@ const addDateToHtml = () => {
   $seconds.innerHTML = addLeadingZero(startCountingDate.seconds);
 };
 
-let timerID = null;
+
 
 const countingDown = () => {
-  clearInterval(timerID);
+  console.log("hello");
   timerID = setInterval(() => {
     addDateToHtml();
   }, 1000);

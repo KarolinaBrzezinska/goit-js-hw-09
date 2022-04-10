@@ -12,6 +12,7 @@ const $divTimer = document.querySelector('div.timer');
 const $classField = document.querySelectorAll('.field');
 const $classValue = document.querySelectorAll('.value');
 
+
 $divTimer.style.display = 'flex';
 $divTimer.style.margin = '30px';
 
@@ -85,8 +86,11 @@ const addDateToHtml = () => {
   $seconds.innerHTML = addLeadingZero(startCountingDate.seconds);
 };
 
+let timerID = null;
+
 const countingDown = () => {
-  setInterval(() => {
+  clearInterval(timerID);
+  timerID = setInterval(() => {
     addDateToHtml();
   }, 1000);
 };
